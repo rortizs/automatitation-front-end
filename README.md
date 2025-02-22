@@ -38,3 +38,20 @@ Improvements:
 
 - Main page (frontend), is must dynamically changes its information based on the requests it recieves from the REST API and above all be reponsive.
   ++ To access the backend from the menu (portfolio), must add a link to the login, witch will request the credentials (they must be validated) and access.
+
+## How to commit this working
+
+Workspace ---> api
+--> models
+--> connections
+--> users
+--> template
+
+                --> controllers
+                --> template.controllers
+                --> user.controllers
+                --> connection.controllers
+                --> views
+                  --> assets
+                  --> modules
+                  --> pages
