@@ -9,7 +9,20 @@ Front-end automation using REST APIs and good development and systems analysis p
 
 ## project structure
 
-api
+ api
+ Los tipos de apis, que existen en la actualidad, SOAP, API, API REST
+ 
+  Monolotico
+   MVVM
+   EXAGONAL
+   MICRO SERVICIOS
+   
+  Cuando usarla?
+    
+
+
+
+
 
 -
 - backend
