@@ -11,6 +11,15 @@ class Connection
   ==========================*/
   static public function infoDatabase()
   {
+    /*===============================
+    example from conncetion to database
+    mysql = stringConnection = "mysql:host=localhost;bname=name_database", user = "user_database", password = "password_database"
+    postgresql = "pgsql:host=localhost;dbname=name_database", user = "user_database", password = "password_database"
+    mongodb = "mongodb://user:password@localhost:27017/name_database"
+    sqlserver = "sqlsrv:Server=localhost;Database=name_database", user = "user_database", password = "password_database"
+
+    ==============================*/
+
     $infoDB = array(
       "database" => "name_database", //this is the name of the database
       "user" => "user_database", //xampp = root this is the user of the database from server
