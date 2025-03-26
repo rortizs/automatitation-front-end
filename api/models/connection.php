@@ -22,10 +22,12 @@ class Connection
 
   /*==========================
   APIKEY
+  secret key for api
+  this is the key to validate the api
   ==========================*/
   static public function apikey()
   {
-    return "gdfdkjw9oiUadskfMh29G384aksjhf2938";
+    return "gdfdkjw9oiUadskfMh29G384aksjhf2938"; //128 bits 
   }
 
   /*==========================
