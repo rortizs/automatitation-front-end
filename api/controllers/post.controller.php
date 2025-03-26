@@ -14,8 +14,8 @@ class PostController
 {
 
   /*=============================================
-	Peticion POST para crear datos
-	=============================================*/
+  POST request to create data
+  =============================================*/
 
   static public function postData($table, $data)
   {
@@ -27,8 +27,8 @@ class PostController
   }
 
   /*=============================================
-	Peticion POST para registrar usuario
-	=============================================*/
+  POST request to register user
+  =============================================*/
 
   static public function postRegister($table, $data, $suffix)
   {
@@ -46,16 +46,16 @@ class PostController
     } else {
 
       /*=============================================
-			Registro de usuarios desde APP externas
-			=============================================*/
+      User registration from external apps
+      =============================================*/
 
       $response = PostModel::postData($table, $data);
 
       if (isset($response["comment"]) && $response["comment"] == "The process was successful") {
 
         /*=============================================
-				Validar que el usuario exista en BD
-				=============================================*/
+        Validate that the user exists in the database
+        =============================================*/
 
         $response = GetModel::getDataFilter($table, "*", "email_" . $suffix, $data["email_" . $suffix], null, null, null, null);
 
@@ -66,8 +66,8 @@ class PostController
           $jwt = JWT::encode($token, "dfhsdfg34dfchs4xgsrsdry46");
 
           /*=============================================
-					Actualizamos la base de datos con el Token del usuario
-					=============================================*/
+          Update the database with the user's token
+          =============================================*/
 
           $data = array(
 
@@ -92,15 +92,15 @@ class PostController
   }
 
   /*=============================================
-	Peticion POST para login de usuario
-	=============================================*/
+  POST request for user login
+  =============================================*/
 
   static public function postLogin($table, $data, $suffix)
   {
 
     /*=============================================
-		Validar que el usuario exista en BD
-		=============================================*/
+    Validate that the user exists in the database
+    =============================================*/
 
     $response = GetModel::getDataFilter($table, "*", "email_" . $suffix, $data["email_" . $suffix], null, null, null, null);
 
@@ -109,8 +109,8 @@ class PostController
       if ($response[0]->{"password_" . $suffix} != null) {
 
         /*=============================================
-				Encriptamos la contraseña
-				=============================================*/
+        Encrypt the password
+        =============================================*/
 
         $crypt = crypt($data["password_" . $suffix], '$2a$07$azybxcags23425sdg23sdfhsd$');
 
@@ -121,8 +121,8 @@ class PostController
           $jwt = JWT::encode($token, "dfhsdfg34dfchs4xgsrsdry46");
 
           /*=============================================
-					Actualizamos la base de datos con el Token del usuario
-					=============================================*/
+          Update the database with the user's token
+          =============================================*/
 
           $data = array(
 
@@ -150,8 +150,8 @@ class PostController
       } else {
 
         /*=============================================
-				Actualizamos el token para usuarios logueados desde app externas
-				=============================================*/
+        Update the token for users logged in from external apps
+        =============================================*/
 
         $token = Connection::jwt($response[0]->{"id_" . $suffix}, $response[0]->{"email_" . $suffix});
 
@@ -184,8 +184,8 @@ class PostController
   }
 
   /*=============================================
-	Respuestas del controlador
-	=============================================*/
+  Controller responses
+  =============================================*/
 
   public function fncResponse($response, $error, $suffix)
   {
@@ -193,8 +193,8 @@ class PostController
     if (!empty($response)) {
 
       /*=============================================
-			Quitamos la contraseña de la respuesta
-			=============================================*/
+      Remove the password from the response
+      =============================================*/
 
       if (isset($response[0]->{"password_" . $suffix})) {
 
